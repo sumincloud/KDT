@@ -1,0 +1,45 @@
+@charset "utf-8";
+body {
+  line-height: 1.5em !important;
+  font-family: '돋움','굴림체', Helvetica, Sans-serif !important;
+  font-size: 12px !important;
+}
+
+
+
+
+.hidden{display: none;}
+.box{
+  border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  margin: 0 auto;
+}
+.left, .right{
+  border: 1px solid red;
+}
+.left_top{
+  display: flex;
+  border: 1px solid orange;
+  padding: 20px;
+  height: 50%;
+  box-sizing: border-box;
+}
+.left_bottom{
+  border: 1px solid orange;
+  padding: 20px;
+  height: 50%;
+  box-sizing: border-box;
+}
+.left_bottom .notice{
+  color: gray;
+}
+
+.right{
+  border: 1px solid magenta;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+}
+

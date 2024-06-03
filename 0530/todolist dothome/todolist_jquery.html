@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoList - 제이쿼리</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .todo_list button{clear: right;}
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- 헤더영역 -->
+    <header>
+      <h1>오늘의 일정 추가</h1>
+      <div>
+        <input type="text" placeholder="오늘의 일정을 입력하세요." id="addValue" autofocus>
+        <button type="submit" id="btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- 메인영역 -->
+    <main>
+      <section class="list_box">
+        <ul class="todo_list">
+          <li><div id="result"></div></li>
+        </ul>
+      </section>
+      <p>
+        <button type="button" id="delete_btn">전체삭제</button>
+      </p>
+
+    </main>
+
+    <!-- 푸터영역 -->
+    <footer>
+      <address>Copyright&copy;2024 제이쿼리 TodoList allrights reserved.</address>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+$(document).ready(function(){
+  const d_btn = $('#delete_btn');
+  let result = $('ul')
+
+  //글 추가버튼 클릭시 내용출력하는 함수호출
+  $('#btn').click(function(){
+    addTo();
+  });
+
+  //전체삭제버튼 클릭시 전체삭제하는 함수호출
+  $('#delete_btn').click(function(){
+    clearAll();
+  });
+
+  //내용추가 하는 함수
+  function addTo(){
+    //alert('함수실행');
+    if($('#addValue').val()==''){ //값이 없다면
+      alert('내용을 입력하세요.')
+    }else{ //값이 있다면
+      let list = $('<li></li>').text($('#addValue').val());
+      let result = $('#result');
+      let button = $('<button></button>').text('X');
+
+      result.append(list);
+      list.append(button);
+
+
+      //서식추가
+      button.css({
+        'font-size':'20px',
+        'border':'none',
+      });
+
+      $('#addValue').val(''); //글입력 버튼 클릭시 기존 내용은 비우기
+      $('#addValue').focus(); //글입력창에 커서를 나오게 함(다시입력할 수 있도록)
+
+      //마우스로 글 목록 클릭시 스타일 변화주기
+      list.click(function(){
+        let clicked = $(this).data('clicked');
+        if (!clicked) {
+          $(this).css({
+            'text-decoration':'line-through',
+            'color':'gray'
+          }).data('clicked',true);
+        }else{
+          $(this).css({
+            'text-decoration':'none',
+            'color':'#000'
+          }).data('clicked',false);
+        }
+      });
+
+      //삭제(X)버튼 누르면
+      button.click(function(e){
+        let li_remove = $(this).parent();
+        li_remove.remove(); //부모를 삭제하라
+      })
+    }
+  }
+
+
+  //전체삭제 하는 함수
+  function clearAll(){
+    //.todo_list의 자식요소인 li태그를 삭제
+    if(confirm('버튼을 클릭 시 글 내용이 모두 삭제됩니다. 실행하시겠습니까?') == true){
+      if(result.innerText == ''){
+        alert('삭제할 글 목록이 없습니다.');
+      }else{
+        result.innerText='';
+      }
+    }else{
+      return false;
+    }
+    
+  }
+
+
+
+
+
+
+
+    })
+  </script>
+  
+</body>
+</html>

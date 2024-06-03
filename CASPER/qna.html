@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현대자동차 - 캐스퍼 상담문의</title>
+  <!-- 초기화 서식 -->
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+  <!-- 기본서식 -->
+  <link rel="stylesheet" type="text/css" href="./css/base.css">
+  <!-- 공통서식 -->
+  <link rel="stylesheet" type="text/css" href="./css/common.css">
+  <!-- 아이콘폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    header{
+      position:relative !important;
+      background:var(--m_bg_color);
+    }
+    header .gnb li a{color:var(--f_color01) !important;}
+    header i.fa-regular{color:var(--f_color01) !important;}
+
+    /* 이미지 영역 */
+    .sec_title2{
+      font-size:30px;
+      font-weight:bold;
+      margin-top: 30px;
+    }
+    .p01{
+      font-size:1rem;
+      line-height:140%;
+      margin-top: 20px;
+      font-weight: 300;
+    }
+    .drive_bg{
+      width: 100%; height: 400px;
+      background-image: url(./images/csimg.png);
+      background-size: cover;
+      text-align: center;
+      color: var(--m_bg_color);
+    }
+    .drive_bg > nav{text-align: left;padding: 50px 50PX;}
+
+    /* cs신청서 서식 */
+    .blue{
+      color: var(--s_color03);
+      padding: 2px;
+    }
+
+    .cs_form{
+      border-top: 2px solid black;
+      width: 1200px;
+      margin: 100px auto 100px auto;
+      padding-top: 30px;
+    }
+    .cs_form > h2{display: none;}
+    .cs_form p{
+      display: flex;
+      margin-top: 20px;
+    }
+    .cs_form p > label{
+      width: 150px;
+      line-height: 40px;
+    }
+    .cs_form p > input, .cs_form select, .cs_form p > textarea{
+      margin: 0;
+      padding: 0;
+      width: 250px;
+      box-sizing: border-box;
+      min-height: 40px;
+    }
+    .cs_form select{
+      cursor: pointer;
+    }
+    .cs_form p > textarea{
+      width: calc(1200px - 150px);
+      resize: none; 
+    }
+    .cs_form p > label[for="message"] {
+      line-height: 160%;
+    }
+    .cs_form p > label[for="message"] > span{
+      display: inline-block;
+    }
+
+    /* 포커스 아웃라인, placeholder 연하게 */
+    input:focus, select:focus, textarea:focus{
+      outline: none;
+    }
+    input::placeholder,select::placeholder, textarea::placeholder{
+      color: #aaa;
+      font-size: 14px;
+      line-height: 140%;
+    }
+
+
+    /* 개인정보 수집 동의 서식 */
+    .agreement_box{
+      padding: 45px 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      margin-top: 50px;
+    }
+    .agreement_box > div{
+      display: inline-block;
+    }
+    .agreement_box > div:first-of-type{
+      display: flex;
+      justify-content: space-between;
+    }
+    .agree_box{display: flex;}
+    .agree_box > div > label{display: none;}
+    .agree_box > div > span{line-height: 20px;}
+    .agree_box > div > span label{margin-right: 30px;}
+
+    .opacity{  /* 동의약관 더보기 버튼 */
+      background: none;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      margin-right: 20px;
+    }
+    .opacity i{
+      font-size: 20px;
+    }
+    .opacity i.up{
+      transform: rotate(0deg);
+    }
+    .opacity i.down{
+      transform: rotate(180deg);
+    }
+
+
+    #agree_detail{
+      line-height: 160%;
+      text-indent: 30px;
+      display: none;
+    }
+
+
+    /* 버튼 서식 */
+    .cs_form .btn{
+      justify-content: center;
+    }
+    .cs_form .btn input{
+      margin-left: 5px;
+      cursor: pointer;
+      border: none;
+      color: white;
+    }
+    .cs_form input[type="reset"]{
+      background: #ccc;
+    }
+    .cs_form input[type="submit"]{
+      background: var(--s_color02);
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- 상단헤더영역 -->
+  <header>
+    <h1><a href="index.html" title="메인페이지로 바로가기">
+      <img src="./images/logo-casper_black.png" alt="캐스퍼 로고"></a>
+    </h1>
+    <!-- 내비게이션 -->
+    <nav class="gnb">
+      <ul>
+        <li><a href="#" title="소개">소개</a></li>
+        <li><a href="#" title="체험">체험</a></li>
+        <li><a href="#" title="이벤트">이벤트</a></li>
+        <li><a href="#" title="구매">구매</a></li>
+        <li><a href="#" title="고객지원">고객지원</a></li>
+      </ul>
+    </nav>
+    <!-- 마이페이지, 알림 -->
+    <div class="util">
+      <a href="./login.php" title="로그인"><i class="fa-regular fa-user"></i></a>
+      <a href="#" title="알림"><i class="fa-regular fa-bell"></i></a>
+    </div>
+  </header>
+
+  <!-- 메인영역 -->
+  <main>
+    <section class="drive_bg">
+      <nav>홈 &gt; 고객지원 &gt; <b>구매 상담 신청</b></nav>
+      <h2 class="sec_title2">구매 상담 신청</h2>
+      <p class="p01">캐스퍼에 대해 궁금한 것이 있으시다면 상담을 신청해주세요.<br>전문 상담사가 캐스퍼 차량 구매 정보를 신속하고 정확하게 알려드립니다.</p>
+    </section>
+    <section class="cs_form">
+      <h2>구매 상담 신청</h2>
+      <form action="./send.php" name="문의하기" method="post" onsubmit="return agreeCheck();">
+        <p>
+          <label for="subject">제목<span class="blue">*</span></label>
+          <input type="text" id="subject" name="subject" placeholder="궁금한 사항이 있으신가요?" required>
+        </p>
+        <p>
+          <label for="name">성명<span class="blue">*</span></label>
+          <input type="text" name="name" placeholder="이름을 입력하세요.">
+        </p>
+        <p>
+          <label for="email">이메일<span class="blue">*</span></label>
+          <input type="email" name="email" placeholder="id@naver.com">
+        </p>
+        <p> <!-- 문의유형 추가 -->
+          <label for="select">문의유형<span class="blue">*</span></label>
+          <select name="select" id="select" required>
+            <option value="">선택해주세요.</option>
+            <option value="차량/모델 선택">차량/모델 선택</option>
+            <option value="구매절차(계약/결제/인수/등록)">구매절차(계약/결제/인수/등록)</option>
+            <option value="구매혜택/이벤트">구매혜택/이벤트</option>
+            <option value="홈페이지 이용">홈페이지 이용</option>
+            <option value="기타">기타</option>
+          </select>
+        </p>
+        <p><!-- 화면 리사이징시 세로줄 생기는 오류있음 -->
+          <label for="message">문의내용<span class="blue">*</span>
+            <span id="charCount" class="counter">(0 / 1,000자)</span>
+          </label>
+          <textarea name="message" id="message" cols="50" rows="10" placeholder="상담이 필요한 내용을 남겨주세요.(최대 1,000자)&#13;&#10;예&#x0029; 모델선택에 대한 안내가 필요해요. 계약진행이 어려워요." required maxlength="1000" oninput="updateCount()"></textarea>
+        </p>
+        <!-- 개인정보 수집동의 -->
+        <div class="agreement_box">
+          <div>
+            <strong><span class="blue">(필수)</span> 개인정보 수집 및 이용 동의</strong>
+            <div class="agree_box">
+              <div>
+                <label>동의유무</label>
+                <span>
+                  <input type="radio" name="agreement" id='agree' value="Y">
+                  <label for="agree">동의</label>
+                  <input type="radio" name="agreement" id='disagree' value="N">
+                  <label for="disagree">비동의</label>
+                </span>
+              </div>
+              <button type="button" class="opacity">
+                <i class="fas fa-angle-down"></i>
+              </button>
+            </div>
+          </div>
+          <div id="agree_detail">
+            <p>(필수) 개인정보 수집 및 이용 동의</p>
+            <ul>
+              <li>1. 수집·이용하는 개인 정보의 항목 : [필수] 성명, 휴대폰번호, 연계 정보(CI), 문의 내용, 상담을 통해 생성된 정보</li>
+              <li>2. 개인정보 수집·이용 목적 : 상담 신청 고객관리, 차량 구매 관련 상담 및 문의 대응, 고지사항 전달, 고객 요청 정보 제공(카탈로그, 견적서 등) 등</li>
+              <li>3. 개인정보 보유 및 이용기간 : 정보 수집 직후 1년 간 보유 및 이용 후 파기</li>
+            </ul>
+            <ul>
+              <li>※ 개인정보 수집 및 이용에 동의할 경우, 구매상담을 위해 전문 상담사가 연락을 드릴 예정입니다.</li>
+              <li>※ 개인정보 수집 및 이용에 동의를 하지 않을 경우, 구매상담에 제한을 받을 수 있습니다.</li>
+            </ul>
+            <p>본인은 현대자동차가 상기와 같이 본인의 개인정보를 수집·이용하는 것에 대하여 동의합니다.</p>
+          </div>
+        </div>
+
+        <p class="btn">
+          <input type="reset" value="취소">
+          <input type="submit" value="등록">
+        </p>
+
+      </form>
+    </section>
+  </main>
+
+
+  <!-- 푸터영역 -->
+  <footer>
+    <div class="f_inner">
+      <h2>
+        <a href="index.html" title="메인페이지로 바로가기">
+          <img src="./images/logo-hyundai.a9ebdc6.png" alt="하단로고">
+        </a>
+      </h2>
+
+      <nav class="f_lnb">
+        <ul>
+          <li><a href="#" title="이용약관">이용약관</a></li>
+          <li><a href="#" title="개인정보 처리방침">개인정보 처리방침</a></li>
+          <li><a href="#" title="저작권안내">저작권안내</a></li>
+          <li><a href="#" title="공동인증서 안내">공동인증서 안내</a></li>
+          <li><a href="#" title="현대자동차 홈페이지">현대자동차 홈페이지</a></li>
+        </ul>
+      </nav>
+
+      <address>
+        <dl>
+          <dt>사업자등록번호 :</dt>
+          <dd>101-00-00000</dd>
+          <dt>통신판매업신고번호 : </dt>
+          <dd>2022-012345</dd>
+          <dt>대표이사 : </dt>
+          <dd>장재훈</dd>
+          <dt>주소 : </dt>
+          <dd>서울시 서초구 헌릉로 12</dd>
+          <dt>호스팅 서비스 제공 : </dt>
+          <dd>현대오토에버(주)</dd>
+        </dl>
+        <p>copyright&copy; 2023 hyundai motor company, all rights reserved.</p>
+      </address>
+    </div>
+  </footer>
+
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    //--------최대 글자수 1000개 카운팅하는 함수--------
+    function updateCount(){
+      const textarea = document.getElementById('message');
+      const charCount = document.getElementById('charCount');
+      charCount.textContent = '('+textarea.value.length +' / 1,000자)';
+    }
+
+    //---------개인정보동의 비동의시 제출불가 함수----------
+    function agreeCheck(){
+      // 'agreement'이라는 이름을 가진 모든 라디오 버튼 요소를 가져온다.
+      var agreement = document.getElementsByName('agreement');
+      var selectedValue = null;
+
+      // 각 라디오 버튼을 순회하면서 체크된 것을 찾는다.
+      for (var i = 0; i < agreement.length; i++) {
+        if (agreement[i].checked){
+          selectedValue = agreement[i].value;
+          break;
+        }
+      }
+
+      if (selectedValue === 'N') {
+        alert('개인정보 수집 및 이용 동의 후 등록해 주세요.');
+        return false; // 폼 제출을 막음
+      }
+      return true; // 폼 제출을 허용
+    }
+
+
+    //-----------개인정보동의 더보기 버튼 슬라이드------------
+    $(document).ready(function(){
+      $('.opacity').click(function(){
+        $('#agree_detail').stop().slideToggle();
+        $(this).find('i').toggleClass('up down');
+      })
+    })
+
+  </script>
+
+  
+</body>
+</html>

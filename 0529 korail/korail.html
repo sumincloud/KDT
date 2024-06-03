@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>코레일 예매</title>
+  <link rel="stylesheet" href="./korail.css">
+  <link rel="stylesheet" href="reset.css">
+
+</head>
+<body>
+  <div class="box">
+    <div class="left">
+      <div class="left_top">
+        <h4 class="hidden">인원/장애/할인 선택</h4>
+        <dl>
+        <dt>인원정보</dt>
+        <dd>
+          <ul>
+            <li>
+              <label for="" class="hidden">어른</label>
+              <select id="" name="" title="" style="width:110px;">
+                <option value="0">어른 0명</option>
+                <option value="1">어른 1명</option>
+                <option value="2">어른 2명</option>
+                <option value="3">어른 3명</option>
+                <option value="4">어른 4명</option>
+                <option value="5">어른 5명</option>
+                <option value="6">어른 6명</option>
+                <option value="7">어른 7명</option>
+                <option value="8">어른 8명</option>
+                <option value="9">어른 9명</option>
+              </select>
+            </li>
+            
+            <li><label for="" class="hidden">만 6세~12세 소아</label>
+              <select id="" name="" title="" style="width:110px;">
+                <option value="0">만 6세~12세</option>
+                <option value="1">어린이 1명</option>
+                <option value="2">어린이 2명</option>
+                <option value="3">어린이 3명</option>
+                <option value="4">어린이 4명</option>
+                <option value="5">어린이 5명</option>
+                <option value="6">어린이 6명</option>
+                <option value="7">어린이 7명</option>
+                <option value="8">어린이 8명</option>
+                <option value="9">어린이 9명</option>
+              </select>
+            </li>
+
+            <li><label for="" class="hidden">만 6세 미만 유아</label>
+              <select id="" name="" title="" style="width:110px;">
+                <option value="0">만 6세 미만</option>
+                <option value="1">유아 1명</option>
+                <option value="2">유아 2명</option>
+                <option value="3">유아 3명</option>
+                <option value="4">유아 4명</option>
+                <option value="5">유아 5명</option>
+                <option value="6">유아 6명</option>
+                <option value="7">유아 7명</option>
+                <option value="8">유아 8명</option>
+                <option value="9">유아 9명</option>
+              </select>
+            </li>
+
+            <li><label for="" class="hidden">만 65세이상 경로</label>
+              <select id="" name="" title="" style="width:110px;">
+                <option value="0">만 65세이상</option>
+                <option value="1">경로 1명</option>
+                <option value="2">경로 2명</option>
+                <option value="3">경로 3명</option>
+                <option value="4">경로 4명</option>
+                <option value="5">경로 5명</option>
+                <option value="6">경로 6명</option>
+                <option value="7">경로 7명</option>
+                <option value="8">경로 8명</option>
+                <option value="9">경로 9명</option>
+              </select>
+            </li>
+            
+          </ul>
+        </dd>
+        </dl>
+        <dl>
+        <dt>장애정도</dt>
+        <dd>
+          <ul>
+            
+            <li><label for="" class="hidden">중증</label>
+              <select id="" name="" title="" style="width:110px;">
+                <option value="0">중증 0명</option>
+                <option value="1">중증 1명</option>
+                <option value="2">중증 2명</option>
+                <option value="3">중증 3명</option>
+                <option value="4">중증 4명</option>
+                <option value="5">중증 5명</option>
+                <option value="6">중증 6명</option>
+                <option value="7">중증 7명</option>
+                <option value="8">중증 8명</option>
+                <option value="9">중증 9명</option>
+              </select>
+            </li>
+
+            <li><label for="" class="hidden">경증</label>
+              <select id="" name="" title="" style="width:110px;">
+                <option value="0">경증 0명</option>
+                <option value="1">경증 1명</option>
+                <option value="2">경증 2명</option>
+                <option value="3">경증 3명</option>
+                <option value="4">경증 4명</option>
+                <option value="5">경증 5명</option>
+                <option value="6">경증 6명</option>
+                <option value="7">경증 7명</option>
+                <option value="8">경증 8명</option>
+                <option value="9">경증 9명</option>
+              </select>
+            </li>
+          </ul>
+        </dd>
+        </dl>
+      </div>
+
+
+      <div class="left_bottom">
+        <dl>
+        <dt>좌석종류선택</dt>
+        <dd>
+          <label for="" class="hidden">창/내측/1인좌석종별</label>
+          <select id="" name="" title="">
+            <option value="기본">기본</option>
+            <option value="1인석">1인석</option>
+            <option value="창측좌석">창측좌석</option>
+            <option value="내측좌석">내측좌석</option>
+          </select>
+        </dd>
+        <dd>
+          <label for="" class="hidden">좌석 방향</label>
+          <select id="" name="" title="">
+            <option value="좌석방향">좌석방향</option>
+            <option value="순방향석">순방향석</option>
+            <option value="역방향석">역방향석</option>
+          </select>
+        </dd>
+        <dd class="">
+          <label for="" class="hidden">할인좌석종별</label>
+          <select id="" name="" title="">
+            <option value="기본">기본</option>
+            <option value="유아동반">유아동반</option>
+            <option value="편한대화">편한대화</option>
+            <option value="노트북">노트북</option>
+            <option value="수동휠체어석">수동휠체어석</option>
+            <option value="전동휠체어석">전동휠체어석</option>
+            <option value="수유실 인접">수유실 인접</option>
+            <option value="2층석">2층석</option>
+            <option value="자전거거치대">자전거거치대</option>
+          </select>
+        </dd>
+        </dl>
+        <div class="notice">
+          <dl>
+            <dt>
+              장애정도
+            </dt>
+            <dd>
+              경증 : 장애의 정도가 심하지 않은 장애인(구 4~6급)
+            </dd>
+            <dd>
+              중증 : 장애의 정도가 심한 장애인(구 1~3급)
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="right">
+      <ul>
+        <li>
+          <input type="radio" id="" name="" value="" title="">
+          <label>전체</label>
+        </li>
+        <li>
+          <input type="radio" id="" name="" value="" title="">
+          <label>KTX/SRT</label>
+        </li>
+        <li>
+          <input type="radio" id="" name="" value="" title="">
+          <label>ITX-청춘</label>
+        </li>
+        <li>
+          <input type="radio" id="" name="" value="" title="">
+          <label>새마을호/ITX-마음</label>
+        </li>
+        <li>
+          <input type="radio" id="" name="" value="" title="">
+          <label>무궁화호/누리로</label>
+        </li>
+        <li>
+          <input type="radio" id="" name="" value="" title="">
+          <label>통근열차</label>
+        </li>
+      </ul>
+      <div>
+        <dl>
+        <dt>여정경로</dt>
+        <dd>
+          <ul>
+            <li>
+              <input type="radio" id="" name="" value="">
+              <label for="">직통</label>
+            </li>
+            <li>
+              <input type="radio" id="" name="" value="">
+              <label for="">환승</label>
+            </li>
+            <li>
+              <input type="radio" id="" name="" value="">
+              <label for="">왕복</label>
+            </li>
+          </ul>
+        </dd>
+        </dl>
+
+        <dl>
+        <dt><label for="">출발역</label></dt>
+        <dd><input id="" name="" type="text" value="서울"><a href="#"><img src="" alt="조회"></a>
+        </dd>
+        </dl>
+
+        <dl>
+        <dt><label for="">도착역</label></dt>
+        <dd><input id="" name="" type="text" value="서울"><a href="#"><img src="" alt="조회"></a>
+        </dd>
+        </dl>
+
+        <dl>
+        <dt>출발일</dt>
+        <dd>
+          <label for="" class="hidden">출발년도</label>
+          <select id="" name="" title="">
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+          </select>년
+
+          <label for="" class="hidden">출발월</label>
+          <select id="" name="" title="">
+            <option value="01">1</option>
+            <option value="02">2</option>
+            <option value="03">3</option>
+            <option value="04">4</option>
+            <option value="05">5</option>
+            <option value="06">6</option>
+            <option value="07">7</option>
+            <option value="08">8</option>
+            <option value="09">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>월
+
+          <label for="" class="hidden">출발일자</label>
+          <select id="" name="" title="출발일시 : 일">
+            <option value="01">1</option>
+            <option value="02">2</option>
+            <option value="03">3</option>
+            <option value="04">4</option>
+            <option value="05">5</option>
+            <option value="06">6</option>
+            <option value="07">7</option>
+            <option value="08">8</option>
+            <option value="09">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+          </select>일
+
+          <label for="" class="hidden">출발시</label>
+          <select id="" name="" title="">
+            <option value="00">0 (오전00)</option>
+            <option value="01">1 (오전01)</option>
+            <option value="02">2 (오전02)</option>
+            <option value="03">3 (오전03)</option>
+            <option value="04">4 (오전04)</option>
+            <option value="05">5 (오전05)</option>
+            <option value="06">6 (오전06)</option>
+            <option value="07">7 (오전07)</option>
+            <option value="08">8 (오전08)</option>
+            <option value="09">9 (오전09)</option>
+            <option value="10">10 (오전10)</option>
+            <option value="11">11 (오전11)</option>
+            <option value="12">12 (오후00)</option>
+            <option value="13">13 (오후01)</option>
+            <option value="14">14 (오후02)</option>
+            <option value="15">15 (오후03)</option>
+            <option value="16">16 (오후04)</option>
+            <option value="17">17 (오후05)</option>
+            <option value="18">18 (오후06)</option>
+            <option value="19">19 (오후07)</option>
+            <option value="20">20 (오후08)</option>
+            <option value="21">21 (오후09)</option>
+            <option value="22">22 (오후10)</option>
+            <option value="23">23 (오후11)</option>
+          </select>시
+
+          <label for="" class="hidden">출발요일</label>
+          <input id="" type="text" name="" value=""  title="">
+          <a href="#" title="달력 새창열기"><img src="" alt="달력"></a>
+        </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

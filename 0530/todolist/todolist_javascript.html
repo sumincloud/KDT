@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoList - 자바스크립트</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .todo_list button{clear: right;}
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- 헤더영역 -->
+    <header>
+      <h1>오늘의 일정 추가</h1>
+      <div>
+        <input type="text" placeholder="오늘의 일정을 입력하세요." id="addValue" autofocus>
+        <button type="submit" id="btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- 메인영역 -->
+    <main>
+      <section class="list_box">
+        <ul class="todo_list">
+          <li><div id="result"></div></li>
+        </ul>
+      </section>
+      <p>
+        <button type="button" id="delete_btn">전체삭제</button>
+      </p>
+
+    </main>
+
+    <!-- 푸터영역 -->
+    <footer>
+      <address>Copyright&copy;2024 자바스크립트 TodoList allrights reserved.</address>
+    </footer>
+  </div>
+
+  <script src="./script/todolist.js"></script>
+  
+</body>
+</html>
