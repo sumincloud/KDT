@@ -31,7 +31,7 @@
   $result = mysqli_query($conn, $query);
   
   echo "<script>alert('예약완료')</script>;";
-  echo "<script>location.replace('./test_drive_list.php')</script>";
+  echo "<script>location.replace('../test_drive_list.php')</script>";
   
   
   

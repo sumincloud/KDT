@@ -11,10 +11,10 @@
   $e_date = $_POST['e_date'];
   
   //1. db연결을 위한 변수선언과 값 설정
-  $mysql_host='localhost';
-  $mysql_user='root';
-  $mysql_password='1234';
-  $mysql_db='product';
+  $mysql_host = 'localhost';
+  $mysql_user = 'allblue0121';
+  $mysql_password = 'p03010301!';
+  $mysql_db = 'allblue0121';
   
   //2. 데이터베이스에 연결을 위한 함수작성
   $conn = mysqli_connect($mysql_host, $mysql_user, $mysql_password, $mysql_db);
@@ -30,9 +30,8 @@
   //4. 데이터 쿼리문 실행하여 결과 저장하기
   $result = mysqli_query($conn, $query);
 
-  echo '입력완료'
-  
-  
+  echo "<script>alert('예약완료')</script>;";
+  echo "<script>location.replace('../test_drive_list.php')</script>";
   
 
 
