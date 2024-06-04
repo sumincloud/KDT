@@ -73,8 +73,11 @@
     background: #ff7417;
     color: #fff;
   }
-  section .btn{text-align: center;}
   section a{
+    text-decoration: none;
+    color: #000;
+  }
+  section #btn a{
     text-align: center;
     display:inline-block;
     width: 200px;
@@ -86,7 +89,7 @@
     margin-top:50px;
     text-decoration: none;
   }
-  section a:hover{
+  section #btn:hover{
     filter: brightness(1.2);
   }
 </style>
@@ -109,10 +112,13 @@
           </tr>
         </thead>
         <tbody>  <!-- for(초기값;조건식;증감식){출력내용} -->
-          <?php for($i=0;$row=mysqli_fetch_assoc($result);$i++): ?>
+          <?php for($i = $total_count - 1; $row = mysqli_fetch_assoc($result); $i--): ?>
             <tr>
               <td><?php echo $i+1 ?></td>
-              <td><?php echo $row['subject'] ?></td>
+              <td>
+                <a href="view.php?id=<?php echo $row['id']?>" title="<?php echo $row['subject']?>">
+                <?php echo $row['subject'] ?></a>
+              </td>
               <td><?php echo $row['name'] ?></td>
               <td><?php echo date('Y-m-d', strtotime($row['datetime'])); ?></td>
             </tr>
@@ -125,7 +131,7 @@
           ?>
         </tbody>
       </table>
-      <div class="btn">
+      <div id="btn">
         <a href="./write.php" title="글쓰기">글쓰기</a>
       </div>
     </section>

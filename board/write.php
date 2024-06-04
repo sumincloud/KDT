@@ -43,32 +43,32 @@
         <input type="submit" value="입력완료">
       </p>
     </section>
-
-    <script>
-      function formCheck(f){
-        //제목 체크
-        if(f.title.value.length < 1){
-          alert('제목을 입력하세요.');
-          return false;
-        }
-        //작성자명 체크
-        if(f.name.value.length < 1){
-          alert('작성자명을 입력하세요.');
-          return false;
-        }
-        //내용 체크
-        if(f.txtbox.value.length < 1){
-          alert('내용을 입력하세요.');
-          return false;
-        }
-        //비밀번호 체크
-        if(f.pwd.value.length < 1){
-          alert('비밀번호를 입력하세요.');
-          return false;
-        }
-        return true;
+  </form>
+  <script>
+    function formCheck(f){
+      //제목 체크
+      if(f.title.value.length < 1){
+        alert('제목을 입력하세요.');
+        return false;
       }
-    </script>
+      //작성자명 체크
+      if(f.name.value.length < 1){
+        alert('작성자명을 입력하세요.');
+        return false;
+      }
+      //내용 체크
+      if(f.txtbox.value.length < 1){
+        alert('내용을 입력하세요.');
+        return false;
+      }
+      //비밀번호 체크
+      if(f.pwd.value.length < 1){
+        alert('비밀번호를 입력하세요.');
+        return false;
+      }
+      return true;
+    }
+  </script>
 
 
 
@@ -76,6 +76,6 @@
 
 
 
-  </form>
+
 </body>
 </html>
