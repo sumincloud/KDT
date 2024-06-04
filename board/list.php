@@ -77,6 +77,28 @@
     text-decoration: none;
     color: #000;
   }
+  section #btn{
+    display: flex;
+    margin-top:50px;
+    justify-content: space-between;
+  }
+  section #btn > div{
+    display:flex;
+    gap: 5px;
+  }
+  section #btn input[type=search]{
+    height: 40px;
+    border: 1px solid #000;
+    width: 300px;
+  }
+  section #btn input[type=submit]{
+    height: 40px;
+    border: 1px solid #ff7417;
+    width: 100px;
+    background:  #ff7417;
+    color: #fff;
+  }
+
   section #btn a{
     text-align: center;
     display:inline-block;
@@ -86,10 +108,9 @@
     background:  #ff7417;
     color: #fff;
     font-weight: 400;
-    margin-top:50px;
     text-decoration: none;
   }
-  section #btn:hover{
+  section #btn a:hover{
     filter: brightness(1.2);
   }
 </style>
@@ -132,10 +153,34 @@
         </tbody>
       </table>
       <div id="btn">
+        <div>
+          <input type="search" id="search" name="search" placeholder="검색(제목+내용)">
+          <input type="submit" value="검색하기" id="search_btn">
+        </div>
         <a href="./write.php" title="글쓰기">글쓰기</a>
       </div>
     </section>
   </main>
+  <script>
+    const s_btn = document.getElementById('search_btn');
+    s_btn.addEventListener('click',function(){
+      form_check();
+    });
+
+    function form_check() {
+      let search = document.getElementById('search');
+      if(search.value.length<1){
+        alert('검색어를 입력하지 않았습니다.');
+        return false;
+      }
+      return true;
+    }
+    
+
+
+
+
+  </script>
   <footer>
 
   </footer>
