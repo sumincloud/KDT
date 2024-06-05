@@ -28,7 +28,7 @@
     outline: none;
   }
   table textarea{
-    height: 300px;
+    height: 150px;
     background: #f5f5f5;
   }
 
@@ -74,7 +74,7 @@
           </tr>
           <tr>
             <td><label for="txtbox">내용</label></td>
-            <td><textarea cols="50" rows="30" name="txtbox" ></textarea></td>
+            <td><textarea cols="50" rows="30" name="txtbox" maxlength ="255"></textarea></td>
           </tr>
           <tr>
             <td><label for="pwd">비밀번호</label></td>
