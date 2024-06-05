@@ -32,6 +32,9 @@
           <!-- 공통 서식 추가 -->
           <link rel="stylesheet" href="../css/common.css">
           <style>
+            table input[name="name"]{
+              background: none;
+            }
             table input, table textarea{
               width: 100%;
               border: none;
@@ -92,11 +95,11 @@
                   <tr>
                     <th>id값</th>
                     <td><?php echo $row['id'] ?></td>
-                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
+                    <input type="hidden" name="id" value="<?php echo $row['id'] ?>" readonly>
                   </tr>
                   <tr>
                     <th>작성자</th>
-                    <td><input type="text" name="name" value="<?php echo $row['name'] ?>"></td>
+                    <td><input type="text" name="name" value="<?php echo $row['name'] ?>" maxlength="50" readonly></td>
                   </tr>
                   <tr>
                     <th>제목</th>
@@ -104,11 +107,11 @@
                   </tr>
                   <tr>
                     <th>내용</th>
-                    <td><textarea name="memo"><?php echo $row['memo'] ?></textarea></td>
+                    <td><textarea name="memo" maxlength="255"><?php echo $row['memo'] ?></textarea></td>
                   </tr>
                   <tr>
                     <th>비밀번호</th>
-                    <td><input type="password" name="pwd"></td>
+                    <td><input type="password" name="pwd" maxlength="255"></td>
                   </tr>
                   <tr>
                     <td colspan="2">
