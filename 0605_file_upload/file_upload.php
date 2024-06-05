@@ -33,4 +33,13 @@ if($_POST['action'] == 'upload'){
   <p>
     <input type="submit" name="action" value="upload">
   </p>
+
+  <?php
+    $img =  $_FILES['myfile']['name'];
+    $upload_folder = 'upload/';
+
+    echo "<img src='./upload/$img ' alt='이미지'>"
+  ?>
+
+
 </form>
