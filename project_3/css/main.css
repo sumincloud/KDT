@@ -1,0 +1,266 @@
+@charset "utf-8";
+
+
+@font-face {
+  font-family: 'SpoqaHanSansNeo-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root{
+  --main_color: #F2055C;
+}
+body{
+  margin-top: 60px;
+  font-family: 'SpoqaHanSansNeo-Regular',Arial, Helvetica, sans-serif;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.swiper-pagination{
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%) !important;
+}
+.swiper-pagination-bullet{
+  margin: 3px;
+}
+.swiper-pagination-bullet-active{background: var(--main_color) !important;}
+
+/* -----------1. 메인배너------------ */
+#sec01{
+  position: relative;
+}
+.main_img{
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.main_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: middle; /* 이미지의 수직 가운데 정렬을 위해 추가 */
+  min-height: 500px;
+}
+#search_box{
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 80%;
+}
+#search_box i{
+  color: #aaa;
+}
+.main_txt{
+  position: absolute;
+  top: 90px;
+  left: 6%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+/* -----------2. 카테고리------------ */
+.padding{
+  padding: 0 6%;
+}
+
+/* ----------3. 딱 맞는 여행지서식---------- */
+.recommend{
+  border-radius: 20px;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+}
+.recommend > div:first-of-type{
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.recommend div img{
+  width: 100%;
+}
+.title_txt, .sub_txt{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: initial;
+  display: -webkit-box;  /* 2줄 이상 말줄임처리 */
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 13px;
+}
+.title_txt{
+  font-weight: 600;
+  -webkit-line-clamp: 1;
+}
+.sub_txt{
+  opacity: 0.4;
+  margin-bottom: 0;
+  -webkit-line-clamp: 1;
+}
+
+/* -------4. 여행메이트 구해요 서식------- */
+@media (min-width: 1200px) {
+  .col-lg-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+@media (max-width: 576px) {
+  .col-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+.card{
+  position: relative;
+  border: none;
+  overflow: hidden;
+  aspect-ratio: 3 / 4; /* 가로 3, 세로 4 비율 */
+}
+.card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 15px 20px 15px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* 위에서 아래로 그라데이션 */
+  color: white;
+}
+.card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 15px 20px 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* 위에서 아래로 그라데이션 */
+  color: white;
+}
+.card-title{
+  font-size: 1rem;
+  font-weight: normal;
+}
+.card-text{
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ------5. 제휴광고---------- */
+.mySwiper3{
+  border-radius: 10px;
+}
+.ad{
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.ad img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: middle; /* 이미지의 수직 가운데 정렬을 위해 추가 */
+}
+
+/* -------6. 이달의 인기여행 ------- */
+#sec06 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+#sec06::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  opacity: 0.3;
+  z-index: -1;
+}
+/* 순위 플래그 */
+.flag{
+  position: relative;
+}
+.flag svg{
+  transform: scale(1.2);
+}
+.flag span{
+  position: absolute;
+  left: 8px;
+  color: white;
+  transform: scale(1.2);
+}
+
+
+
+/* 슬라이드 서식 */
+ul,ol,li {list-style: none;}
+
+/* 슬라이더 기본 스타일 */
+.slider {
+  position: relative;
+  margin-top: 0 !important;
+} 
+.slider .inner {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 10px;
+} 
+
+/* 슬라이더 내 각 슬라이드 아이템 스타일 */
+.slide_list{
+  left: -30px; /* 슬라이드 위치 */
+}
+.slide_list > li{
+  position: relative;
+  width: 33%;
+  transform: scale(0.7);
+  transition: all 0.3s;
+} 
+.slide_list > li a {display: block;} 
+.slide_list > li .img {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 120%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+} 
+.slide_list > li .img img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* 현재 활성화된 슬라이드 스타일 */
+.slide_list > li.swiper-slide-active,
+.slide_list > li.swiper-slide-duplicate-active {transform: scale(1); opacity: 1;} 
+
+
+/* 모바일 화면에서 슬라이더 스타일 조정 */
+@media (min-width: 0px){
+  .slide_list > li { width: 50%; } 
+}
+/* pc 화면에서 슬라이더 스타일 조정 */
+@media (min-width: 1200px){
+  .slide_list > li { width: 20%; } 
+}

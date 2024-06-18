@@ -10,181 +10,19 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- 3. 부트스트랩 아이콘폰트 연결 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- Link Swiper's CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-
-
-  <style>
-    @font-face {
-      font-family: 'SpoqaHanSansNeo-Regular';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    :root{
-      --main_color: #F2055C;
-    }
-
-
-    body{
-      margin-top: 60px;
-      font-family: 'SpoqaHanSansNeo-Regular',Arial, Helvetica, sans-serif;
-    }
-    a{
-      text-decoration: none;
-      color: #000;
-    }
-
-    /* -----------1. 메인배너------------ */
-    #sec01{
-      position: relative;
-    }
-    .main_img{
-      height: 300px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-    .main_img img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      vertical-align: middle; /* 이미지의 수직 가운데 정렬을 위해 추가 */
-      min-height: 500px;
-    }
-    #search_box{
-      position: absolute;
-      top: 200px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      width: 80%;
-    }
-    #search_box i{
-      color: #aaa;
-    }
-    .main_txt{
-      position: absolute;
-      top: 90px;
-      left: 6%;
-      color: #fff;
-      font-weight: bold;
-      font-size: 24px;
-    }
-
-
-    /* -----------2. 카테고리------------ */
-    .padding{
-      padding: 0 6%;
-    }
-
-    /* ----------3. 딱 맞는 여행지서식---------- */
-    .recommend{
-      border-radius: 20px;
-      position: relative;
-      top: 0;
-      cursor: pointer;
-    }
-    .recommend > div:first-of-type{
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-    }
-    .recommend div img{
-      width: 100%;
-    }
-    .title_txt, .sub_txt{
-      overflow: hidden;
-      text-overflow: ellipsis;
-      line-height: initial;
-      display: -webkit-box;  /* 2줄 이상 말줄임처리 */
-      -webkit-line-clamp: 1;
-      -webkit-box-orient: vertical;
-      font-size: 13px;
-    }
-    .title_txt{
-      font-weight: 600;
-      -webkit-line-clamp: 1;
-    }
-    .sub_txt{
-      opacity: 0.4;
-      margin-bottom: 0;
-      -webkit-line-clamp: 1;
-    }
-
-    /* -------4. 여행메이트 구해요 서식------- */
-    @media (min-width: 1200px) {
-      .col-lg-3 {
-        max-width: 25%;
-        flex: 0 0 25%;
-      }
-    }
-    @media (max-width: 576px) {
-      .col-6 {
-        max-width: 50%;
-        flex: 0 0 50%;
-      }
-    }
-    .card{
-      position: relative;
-      border: none;
-      overflow: hidden;
-      aspect-ratio: 3 / 4; /* 가로 3, 세로 4 비율 */
-    }
-    .card img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .card-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px 15px 20px 15px;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* 위에서 아래로 그라데이션 */
-      color: white;
-    }
-    .card-body {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 30px 15px 20px 15px;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* 위에서 아래로 그라데이션 */
-      color: white;
-    }
-    .card-title{
-      font-size: 1rem;
-      font-weight: normal;
-    }
-    .card-text{
-      font-size: 14px;
-      opacity: 0.8;
-    }
-
-    /* -------6. 이달의 인기여행 서식------- */
-    #sec06{
-      background: lightcyan; /* 해당 슬라이드 이미지 블러배경으로 바뀌게 하고싶음 */
-    }
-    .ad{
-      height: 150px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-    }
-    .ad img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      vertical-align: middle; /* 이미지의 수직 가운데 정렬을 위해 추가 */
-    }
-
-
-  </style>
+  <!-- 메인 css 서식 연결 -->
+  <link rel="stylesheet" href="../css/main.css">
+  <!-- 스와이퍼 css -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+  <!-- 스와이퍼 js -->
+  <script src="../script/swiper.js"></script>
+  <!-- 제이쿼리 -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <!-- 메인 스크립트 -->
+  <script src="../script/main.js"></script>
 </head>
 <body>
   <!-- 공통헤더삽입 -->
@@ -399,6 +237,46 @@
               </span>
             </div>
           </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
+                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
+          <div class="swiper-slide recommend">
+            <div>
+              <img src="../images/busan_01.jpg" alt="이미지">
+            </div>
+            <div style="padding: 10px 5px;">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="title_txt">부산 바다 패키지 여행코스 초보자도 쉽게 여행</span>
+                <div style="font-size: 13px; font-weight: bold; text-wrap: none;width: 60px;">
+                  <i class="bi bi-star-fill" style="color: #ffc000;"></i>
+                  <span>4.8</span>
+                </div>
+              </div>
+              <p class="sub_txt mb-1">부산의 바다냄새를 맡으러 댕댕이와 여행가자</p>
+              <span class="title_txt">
+                <i class="bi bi-geo-alt-fill"></i>
+                부산 해운대구 
+                <span style="opacity: 0.4; font-weight: normal;">/ 1박추천</span>
+              </span>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -472,7 +350,7 @@
     </section>
 
     <!-- 5. 제휴배너 광고 -->
-    <section class="padding">
+    <section class="padding mb-5">
       <!-- Swiper -->
       <div class="swiper mySwiper3">
         <div class="swiper-wrapper">
@@ -481,7 +359,12 @@
               <img src="https://dummyimage.com/400x150" alt="광고배너">
             </div>
           </div>
-
+          <div class="swiper-slide">
+            <div class="ad">
+              <img src="https://dummyimage.com/400x150" alt="광고배너">
+            </div>
+          </div>
+        </div>
         <div class="swiper-pagination"></div>
       </div>
     </section>
@@ -489,94 +372,64 @@
 
     <!-- 6. 이달의 인기여행 테마 -->
     <section id="sec06">
-      <div class="d-flex justify-content-between mt-5 mb-4 padding pt-4 pb-4">
+      <div class="d-flex justify-content-between mb-4 padding pt-5 pb-2">
         <h2 class="fw-bold fs-5 m-0">
           이 달의 인기 여행 테마 🏆</h2>
         <a href="#" title="인기여행테마 전체보기" style="color: #aaa; width: 40px; text-align: center;">
           <i class="bi bi-chevron-right fs-4"></i>
         </a>
       </div>
-
-
-
-    
-
-
-
-
+      <div class="slider">
+        <div class="inner">
+          <ul class="swiper-wrapper slide_list">
+            <li class="swiper-slide">
+              <span class="img">
+                <img src="https://picsum.photos/id/10/1000/600" alt="썸네일 이미지">
+              </span>
+              <div class="flag d-inline">
+                <svg width="26" height="33" fill="none">
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                </svg>
+                <span>2</span>
+              </div>
+            </li>
+            <li class="swiper-slide">
+              <span class="img">
+                <img src="https://picsum.photos/id/20/1000/600" alt="썸네일 이미지">
+              </span>
+            </li>
+            <li class="swiper-slide">
+              <span class="img">
+                <img src="https://picsum.photos/id/30/1000/600" alt="썸네일 이미지">
+              </span>
+            </li>
+            <li class="swiper-slide">
+              <span class="img">
+                <img src="https://picsum.photos/id/40/1000/600" alt="썸네일 이미지">
+              </span>
+            </li>
+            <li class="swiper-slide">
+              <span class="img">
+                <img src="https://picsum.photos/id/50/1000/600" alt="썸네일 이미지">
+              </span>
+            </li>
+            <li class="swiper-slide">
+              <span class="img">
+                <img src="https://picsum.photos/id/60/1000/600" alt="썸네일 이미지">
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper1", {
-      spaceBetween: 0,
-      centeredSlides: true,
-      autoplay: {
-        delay: 7000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-
-
-    //웅진소식 슬라이드
-    var swiper = new Swiper(".mySwiper2", {
-      //0 ~ 375일때 (작은 모바일일때 설정)
-      slidesPerView: 1.5,
-      spaceBetween: 30,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      breakpoints : { //반응형 설정
-        376 : { //376~767일때 (큰 모바일일때 설정)
-          slidesPerView : 2.2,
-          spaceBetween: 30,
-        },
-        768 : { //768~1023일때 (태블릿일때 설정)
-          slidesPerView : 3.2,
-          spaceBetween: 30,
-        },
-        1024 : {  //1024 이상 일때 (pc일때 설정)
-          slidesPerView : 4.2,
-          spaceBetween: 50,
-        }
-      },
-    });
-
-  </script>
-
   </main>
 
   <!-- 푸터서식 -->
   <footer></footer>
+
 </body>
 </html>
