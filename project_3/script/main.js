@@ -110,9 +110,9 @@ $(document).ready(function(){
       initialSlide: slideInx,
       loop: loopChk,
       centeredSlides: true,
-      navigation: {
-        prevEl: $slider.find('.btn_prev')[0],
-        nextEl: $slider.find('.btn_next')[0],
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
       },
       on: {
         slideChangeTransitionStart: function() {

@@ -1,23 +1,5 @@
 @charset "utf-8";
 
-
-@font-face {
-  font-family: 'SpoqaHanSansNeo-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-:root{
-  --main_color: #F2055C;
-}
-body{
-  margin-top: 60px;
-  font-family: 'SpoqaHanSansNeo-Regular',Arial, Helvetica, sans-serif;
-}
-a{
-  text-decoration: none;
-  color: #000;
-}
 .swiper-pagination{
   position: absolute;
   bottom: 8px;
@@ -51,7 +33,7 @@ a{
   top: 200px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100;
+  z-index: 10;
   width: 80%;
 }
 #search_box i{
@@ -196,7 +178,10 @@ a{
 }
 /* 순위 플래그 */
 .flag{
-  position: relative;
+  position: absolute;
+  top:3px;
+  left: 25px;
+
 }
 .flag svg{
   transform: scale(1.2);
@@ -207,8 +192,6 @@ a{
   color: white;
   transform: scale(1.2);
 }
-
-
 
 /* 슬라이드 서식 */
 ul,ol,li {list-style: none;}
@@ -262,5 +245,10 @@ ul,ol,li {list-style: none;}
 }
 /* pc 화면에서 슬라이더 스타일 조정 */
 @media (min-width: 1200px){
-  .slide_list > li { width: 20%; } 
+  .slide_list > li { width: 25%; } 
+}
+
+/* 페이지네이션 버튼 */
+#sec06 .swiper-pagination{
+  position: relative;
 }

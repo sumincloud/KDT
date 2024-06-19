@@ -10,23 +10,22 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- 3. 부트스트랩 아이콘폰트 연결 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- 공통서식 연결 -->
+  <link rel="stylesheet" href="../css/common.css">
   <!-- 메인 css 서식 연결 -->
   <link rel="stylesheet" href="../css/main.css">
   <!-- 스와이퍼 css -->
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <!-- 스와이퍼 js -->
   <script src="../script/swiper.js"></script>
   <!-- 제이쿼리 -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <!-- 메인 스크립트 -->
   <script src="../script/main.js"></script>
 </head>
 <body>
   <!-- 공통헤더삽입 -->
-  <!-- <?php include('./header.php')?> -->
+  <?php include('./header.php')?>
 
   <!-- 메인서식 -->
   <main>
@@ -293,58 +292,58 @@
         </a>
       </div>
 
-    <div class="container" style="margin: 0;padding: 0; max-width: inherit;">
-      <div class="row">
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="../images/find_deabu_01.jpg" alt="">
-            <div class="card-top">
-              <h4 class="card-title">6월 23일 출발</h4>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
-              <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="../images/find_gongju_01.jpg" alt="">
-            <div class="card-top">
-              <h4 class="card-title">6월 25일 출발</h4>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">공주에서 제대로 '쉼'</h4>
-              <p class="card-text">: 도심을 벗어나 자연속으로</p>
+      <div class="container" style="margin: 0;padding: 0; max-width: inherit;">
+        <div class="row">
+          <div class="col-6 col-lg-3 mb-4">
+            <div class="card">
+              <img src="../images/find_deabu_01.jpg" alt="">
+              <div class="card-top">
+                <h4 class="card-title">6월 23일 출발</h4>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
+                <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="../images/find_deabu_01.jpg" alt="">
-            <div class="card-top">
-              <h4 class="card-title">6월 26일 출발</h4>
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
-              <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+          <div class="col-6 col-lg-3 mb-4">
+            <div class="card">
+              <img src="../images/find_gongju_01.jpg" alt="">
+              <div class="card-top">
+                <h4 class="card-title">6월 25일 출발</h4>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">공주에서 제대로 '쉼'</h4>
+                <p class="card-text">: 도심을 벗어나 자연속으로</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-6 col-lg-3 mb-4">
-          <div class="card">
-            <img src="../images/find_deabu_01.jpg" alt="">
-            <div class="card-top">
-              <h4 class="card-title">6월 27일 출발</h4>
+          <div class="col-6 col-lg-3 mb-4">
+            <div class="card">
+              <img src="../images/find_deabu_01.jpg" alt="">
+              <div class="card-top">
+                <h4 class="card-title">6월 26일 출발</h4>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
+                <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+              </div>
             </div>
-            <div class="card-body">
-              <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
-              <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+          </div>
+          <div class="col-6 col-lg-3 mb-4">
+            <div class="card">
+              <img src="../images/find_deabu_01.jpg" alt="">
+              <div class="card-top">
+                <h4 class="card-title">6월 27일 출발</h4>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">대부도 먹고 뜯고 즐기자</h4>
+                <p class="card-text">: 으르렁파크에서 완벽한 휴가</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-  </div>
 
 
     </section>
@@ -354,6 +353,11 @@
       <!-- Swiper -->
       <div class="swiper mySwiper3">
         <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="ad">
+              <img src="https://dummyimage.com/400x150" alt="광고배너">
+            </div>
+          </div>
           <div class="swiper-slide">
             <div class="ad">
               <img src="https://dummyimage.com/400x150" alt="광고배너">
@@ -390,46 +394,86 @@
                 <svg width="26" height="33" fill="none">
                   <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
                 </svg>
-                <span>2</span>
+                <span>1</span>
               </div>
             </li>
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/20/1000/600" alt="썸네일 이미지">
               </span>
+              <div class="flag d-inline">
+                <svg width="26" height="33" fill="none">
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                </svg>
+                <span>2</span>
+              </div>
             </li>
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/30/1000/600" alt="썸네일 이미지">
               </span>
+              <div class="flag d-inline">
+                <svg width="26" height="33" fill="none">
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                </svg>
+                <span>3</span>
+              </div>
             </li>
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/40/1000/600" alt="썸네일 이미지">
               </span>
+              <div class="flag d-inline">
+                <svg width="26" height="33" fill="none">
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                </svg>
+                <span>4</span>
+              </div>
             </li>
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/50/1000/600" alt="썸네일 이미지">
               </span>
+              <div class="flag d-inline">
+                <svg width="26" height="33" fill="none">
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                </svg>
+                <span>5</span>
+              </div>
             </li>
             <li class="swiper-slide">
               <span class="img">
                 <img src="https://picsum.photos/id/60/1000/600" alt="썸네일 이미지">
               </span>
+              <div class="flag d-inline">
+                <svg width="26" height="33" fill="none">
+                  <path d="m13 24.25-13 10V0h26v34.25l-13-10Z" fill="#F2055C"></path>
+                </svg>
+                <span>6</span>
+              </div>
             </li>
           </ul>
+          <div class="swiper-pagination" style="margin: 30px 0 25px 0;"></div>
         </div>
       </div>
     </section>
+
+    <!-- 공백 -->
+    <section style="height:500px;"></section>
 
 
 
 
   </main>
 
-  <!-- 푸터서식 -->
-  <footer></footer>
+  <!-- 공통 바텀바삽입 -->
+  <?php include('./bottom.php')?>
+  <script>
+    //해당 페이지에 해당하는 하단 바텀바에 버튼색 생기게
+    $(document).ready(function() {
+      $('a[title="홈"]').find('i, span').addClass('active');
+    });
+  </script>
 
 </body>
 </html>
