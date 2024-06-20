@@ -135,8 +135,11 @@
           <div class="input-group">
             <input type="text" class="form-control" name="mb_id" id="mb_id" placeholder="아이디를 입력해주세요 (6 - 20자)" maxlength="20" required>
             <button class="btn" type="button" id="id_check">중복확인</button>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback fs-6">
               아이디를 입력해주세요.
+            </div>
+            <div class="valid-feedback fs-6">
+              사용가능한 아이디입니다.
             </div>
           </div>
         </div>
@@ -146,8 +149,11 @@
           <small class="d-block text-secondary" style="font-size: 14px;">8자 이상 20자 이내의 영문,숫자,특수문자(!@#$%&amp;)사용</small>
           <div style="position: relative;">
             <input type="password" class="form-control" name="mb_password" id="mb_password" placeholder="비밀번호를 입력해주세요" maxlength="20" required>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback fs-6">
               비밀번호를 입력해주세요.
+            </div>
+            <div class="valid-feedback fs-6">
+              사용가능한 비밀번호입니다.
             </div>
           </div>
         </div>
@@ -156,8 +162,11 @@
           <label for="mb_password2" class="form-label fw-bold fs-6">비밀번호 확인</label>
           <div style="position: relative;">
             <input type="password" class="form-control" name="mb_password2" id="mb_password2" placeholder="비밀번호를 다시 입력해주세요" maxlength="20" required>
-            <div class="invalid-feedback">
-              비밀번호를 다시 입력해주세요.
+            <div class="invalid-feedback fs-6">
+              비밀번호가 일치하지 않습니다.
+            </div>
+            <div class="valid-feedback fs-6">
+              비밀번호가 일치합니다.
             </div>
           </div>
         </div>
@@ -165,16 +174,22 @@
         <div class="fs-4 mb-2 mt-4">
           <label for="mb_name" class="form-label fw-bold fs-6">반려견 이름</label>
           <input type="text" class="form-control" name="mb_name" id="mb_name" placeholder="반려견 이름을 입력하세요" maxlength="8" required>
-          <div class="invalid-feedback">
-            반려견 이름을 입력해주세요.
+          <div class="invalid-feedback fs-6">
+            반려견 이름을 입력해주세요
+          </div>
+          <div class="valid-feedback fs-6">
+            사용가능한 반려견 이름입니다.
           </div>
         </div>
         <!-- 휴대폰 번호 -->
         <div class="fs-4 mb-2 mt-4">
           <label for="mb_tel" class="form-label fw-bold fs-6">휴대폰 번호</label>
           <input type="text" class="form-control" name="mb_tel" id="mb_tel" placeholder="'-' 구분없이 입력해주세요" maxlength="11" required>
-          <div class="invalid-feedback">
-          휴대폰 번호를 입력해주세요.
+          <div class="invalid-feedback fs-6">
+            휴대폰 번호를 입력해주세요
+          </div>
+          <div class="valid-feedback fs-6">
+            휴대폰 번호가 올바릅니다.
           </div>
         </div>
         <!-- 이메일 -->
@@ -248,130 +263,66 @@
     </div>
   </footer>
   
-
   <script>
-    //유효성 검사 방법 3가지 패턴
-    //1. html5에서 사용하는 required 속성을 사용하는 방법
-    //2. 자바스크릡트를 활용하여 값을 체크하는 방법
-    //3. php문법을 활용하여 php문서 안에서 체크하는 방법
-    $(document).ready(function(){
+    $(document).ready(function() {
+      // 필드 유효성 검사 함수
+      function validateField(field, regex) {
+        const feedback = field.nextAll('.invalid-feedback, .valid-feedback');
+        if (regex.test(field.val())) {
+          field.removeClass('is-invalid').addClass('is-valid');
+          feedback.filter('.invalid-feedback').hide();
+          feedback.filter('.valid-feedback').show();
+        } else {
+          field.removeClass('is-valid').addClass('is-invalid');
+          feedback.filter('.valid-feedback').hide();
+          feedback.filter('.invalid-feedback').show();
+        }
+      }
 
-      $('#join').click(function(e) {
-        // 폼의 기본 동작인 submit을 막음
-        e.preventDefault();
-        validateCheck();
-        // 유효성 검사를 수행하고 결과를 변수에 저장
-        var isFormValid = validateCheck();
-        var isPasswordValid = passwordCheck();
-        var isAgreeChecked = agreeCheck();
+      // 아이디 유효성 검사 (6-20자 영문, 숫자)
+      $('#mb_id').on('input', function() {
+        const idRegex = /^[a-zA-Z0-9]{6,20}$/;
+        validateField($(this), idRegex);
+      });
 
-        // 세 가지 유효성 검사가 모두 통과되면 폼 제출
-        if (isFormValid && isPasswordValid && isAgreeChecked) {
-          $('#join_form').submit();
-          // 모든 조건을 만족하면 제출 가능
-          //alert('회원가입 성공!');
+      // 비밀번호 유효성 검사 (8-20자 영문, 숫자, 특수문자)
+      $('#mb_password').on('input', function() {
+          const passwordRegex = /^[a-zA-Z0-9!@#$%&]{8,20}$/;
+          validateField($(this), passwordRegex, $(this).siblings('.invalid-feedback, .valid-feedback'));
+      });
+
+      // 비밀번호 확인 (비밀번호 일치 여부)
+      $('#mb_password2').on('input', function() {
+        const inputVal = $(this).val(); // 현재 입력된 값
+        const passwordVal = $('#mb_password').val();
+
+        if (inputVal === '' || inputVal !== passwordVal) {
+          // 입력값이 비어있거나 비밀번호가 일치하지 않는 경우
+          $(this).removeClass('is-valid').siblings('.invalid-feedback').show();
+          $(this).addClass('is-invalid').siblings('.valid-feedback').hide();
+        } else {
+          // 입력값이 있고 비밀번호가 일치하는 경우
+          $(this).removeClass('is-invalid').siblings('.valid-feedback').show();
+          $(this).addClass('is-valid').siblings('.invalid-feedback').hide();
         }
       });
 
-      $('input').keyup(function() {
-        // input에 입력할때마다 함수체크
-        validateCheck();
+      // 기타 필드 유효성 검사 (빈 값 여부)
+      $('#mb_name, #mb_tel, #mb_email, #ch_btn').on('input change', function() {
+        const field = $(this);
+        const validFeedback = field.siblings('.valid-feedback');
+        const invalidFeedback = field.siblings('.invalid-feedback');
+
+        if (field.val().trim() !== '') {
+          field.removeClass('is-invalid').addClass('is-valid');
+          invalidFeedback.hide();
+          validFeedback.show();
+        } else {
+          field.removeClass('is-valid').addClass('is-invalid');
+          validFeedback.hide();
+          invalidFeedback.show();
+        }
       });
-
-
-      //빈칸 유효성 검사
-      function validateCheck() {
-
-        const id = $('#mb_id').val();
-        const password = $('#mb_password').val();
-        const password2 = $('#mb_password2').val();
-        const name = $('#mb_name').val();
-        const tel = $('#mb_tel').val();
-        const email = $('#mb_email').val();
-        const job = $('#mb_job').val();
-
-        // 아이디 길이 확인
-        if (id.length < 6) {
-          $('#mb_id').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_id').removeClass('is-invalid');
-        }
-
-        // 비밀번호 입력 확인
-        if (password.length < 8) {
-          $('#mb_password').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_password').removeClass('is-invalid');
-        }
-        // 비밀번호 재입력 확인
-        if (password.length < 8) {
-          $('#mb_password2').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_password2').removeClass('is-invalid');
-        }
-        // 반려견 이름 입력 확인
-        if (name.length < 1) {
-          $('#mb_name').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_name').removeClass('is-invalid');
-        }
-        // 휴대폰 번호 입력 확인
-        if (tel.length < 1) {
-          $('#mb_tel').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_tel').removeClass('is-invalid');
-        }
-        // 이메일 입력 확인
-        if (email.length < 1) {
-          $('#mb_email').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_email').removeClass('is-invalid');
-        }
-        // 직업선택 확인
-        if (job.length < 1) {
-          $('#mb_job').addClass('is-invalid');
-          return false;
-        } else {
-          $('#mb_job').removeClass('is-invalid');
-        }
-        return true;
-      };
-
-      // 이용약관 동의 체크 확인
-      function agreeCheck() {
-        if (!$('#ch_btn').is(':checked')) {
-          alert('이용약관에 동의하셔야 합니다.');
-          return false;
-        }
-        return true;
-      }
-
-
-      //비밀번호 유효성 검사
-      function passwordCheck(){
-        const password = $('#mb_password').val();
-        const password2 = $('#mb_password2').val();
-
-        // 비밀번호 형식 확인 (영문, 숫자, 특수문자 포함 8자 이상 20자 이내)
-        var reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
-        if (!reg.test(password)) {
-          alert('비밀번호는 8 ~ 20자 이내로 영문, 숫자, 특수문자를 포함해야 합니다.');
-          return false;
-        }
-
-        // 비밀번호 확인 일치 여부 확인
-        if (password !== password2) {
-          alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
-          return false;
-        }
-        return true;
-      }
 
       // 휴대폰번호 입력칸 문자 제거
       $('#mb_tel').on('input', function() {
@@ -388,98 +339,23 @@
       });
 
 
-      // 취소 버튼 클릭 시 로그인페이지로 이동
-      $('#cancelButton').click(function() {
-        window.location.href = '<?php echo $href; ?>';
+
+      // 폼 제출 시 전체 필드 유효성 검사
+      $('#join_form').on('submit', function(event) {
+          let isValid = true;
+          $(this).find('input[required], textarea[required]').each(function() {
+              if ($(this).hasClass('is-invalid') || $(this).val().trim() === '') {
+                  $(this).focus();
+                  isValid = false;
+                  return false;
+              }
+          });
+          if (!isValid) {
+              event.preventDefault();
+          }
       });
+  });
+</script>
 
-
-
-
-
-
-
-
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-/*     function formCheck(){
-      //변수선언
-      // let ch_btn = document.getElementById('ch_btn'); 
-      // let id = document.getElementById('mb_id'); 
-      // let password = document.getElementById('mb_password'); 
-      // let password2 = document.getElementById('mb_password2'); 
-      // let name = document.getElementById('mb_name'); 
-      // let tel = document.getElementById('mb_tel'); 
-      // let email = document.getElementById('mb_email'); 
-
-      // if(ch_btn.checked==false){
-      //   alert('약관에 동의하셔야 합니다.');
-      //   return false;
-      // }
-      // if(id.value.length<1){
-      //   alert('아이디를 입력하지 않았습니다.');
-      //   id.focus();
-      //   return false;
-      // }
-      // if(id.value.length<6||id.value.length>20){
-      //   alert('아이디는 6~20자 이내로 입력하세요.');
-      //   id.focus();
-      //   return false;
-      // }
-      // if(password.value.length<1){
-      //   alert('비밀번호를 입력하지 않았습니다.');
-      //   password.focus();
-      //   return false;
-      // }
-      //영문 숫자 특수기호 조합 8자리 이상 20이하
-      // let reg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/
-      // if(!reg.test(password.value)){
-      //   alert('비밀번호는 8 ~ 20자 이내로 영문, 숫자, 특수문자를 포함해야 합니다.')
-      //   return false;
-      // }
-      //비밀번호 확인 일치여부
-      // if(password.value != password2.value){
-      //   alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.')
-      //   return false;
-      // }
-      // if(name.value.length<1){
-      //   alert('이름을 입력하지 않았습니다.');
-      //   name.focus();
-      //   return false;
-      // }
-      // if(tel.value.length<1){
-      //   alert('휴대폰 번호를 입력하지 않았습니다.');
-      //   tel.focus();
-      //   return false;
-      // }
-      // if(tel.value.length<11){
-      //   alert('휴대폰 번호는 11자리로 입력해주세요.');
-      //   tel.focus();
-      //   return false;
-      // }
-      // if(email.value.length<1){
-      //   alert('이메일주소를 입력하지 않았습니다.');
-      //   email.focus();
-      //   return false;
-      // }
-    } */
-
-
-
-
-
-  </script>
 </body>
 </html>
