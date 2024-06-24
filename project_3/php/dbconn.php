@@ -12,7 +12,7 @@
     die('연결실패 : ' .mysqli_connect_error());
   }
 
-  ini_set('display_errors', 'Off');
+  ini_set('display_errors', 'On');
 
   session_start(); //세션 시작
 
