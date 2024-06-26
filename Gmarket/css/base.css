@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+/* 지마켓 웹폰트 */
+@font-face {
+	font-family: 'Gmarket Sans';    font-style: normal;    font-weight: 700;
+	src: local('Gmarket Sans Bold'), local('GmarketSans-Bold'),
+	url('http://script.gmarket.com/fonts/GmarketSansBold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+	url('http://script.gmarket.com/fonts/GmarketSansBold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+	font-family: 'Gmarket Sans';    font-style: normal;    font-weight: 500;
+	src: local('Gmarket Sans Medium'), local('GmarketSans-Medium'),
+	url('http://script.gmarket.com/fonts/GmarketSansMedium.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+	url('http://script.gmarket.com/fonts/GmarketSansMedium.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+	font-family: 'Gmarket Sans';    font-style: normal;    font-weight: 300;
+	src: local('Gmarket Sans Light'), local('GmarketSans-Light'),
+	url('http://script.gmarket.com/fonts/GmarketSansLight.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+	url('http://script.gmarket.com/fonts/GmarketSansLight.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root{
+  --base_f_size: 0.75rem; /* 16px의 0.75배 = 12px */
+  --b_color1: #333;
+  --b_color2: #fff;
+}
+
+body{
+  font-family: 'Gmarket Sans', '맑은 고딕', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--base_f_size);
+  color: var(--b_color1);
+}
+a{
+  color: var(--b_color1);
+  text-decoration: none;
+}
+input{outline: none;}
+footer{
+  font-family: '맑은 고딕', Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,166 @@
+/* main.css */
+@charset "utf-8";
+
+html{
+  background: #ccc;
+}
+body{
+  background: rgb(93,185,210);
+  background: linear-gradient(180deg, rgba(93,185,210,1) 18%, rgba(204,204,204,1) 18%);
+}
+main{
+  padding-top: 68px;
+}
+
+
+
+
+
+/* 토글버튼 서식 */
+#toggle{display: none;}
+#toggle_btn img{cursor: pointer;}
+
+/* 토글메뉴바 서식 */
+#toggle_bg{
+  width: 100%;height: 100%;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  z-index: 200;
+  display: none;
+}
+.fa-times{
+  position: absolute;
+  right: 10px; top: 10px;
+  padding: 10px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+}
+#toggle_menu{
+  position:fixed;
+  width:70%;height:100%;
+  top:0px;
+  left: -100%;
+  background:white;
+  padding: 0 70px 0 20px;
+  transition:0.5s;
+  box-sizing: border-box;
+  z-index: 300;
+}
+/* 전체메뉴 클릭시 체크박스가 체크되면서 토글메뉴바가 안으로 들어오게 한다. */
+#toggle:checked ~ #toggle_menu{left:0px;}
+#toggle:checked ~ #toggle_bg{display: block;}
+
+
+/* 메인메뉴 서식 */
+#t_gnb > li p{
+  font-weight: 600;
+  line-height:50px;
+  display:block;/*반응영역 넓히기 위함*/
+  border-bottom:1px solid #ccc;
+  text-indent: 20px;
+  cursor: pointer;
+  height: 50px;
+  font-size: 1.1rem;
+}
+#t_gnb li{
+  border-bottom:1px solid rgba(255,255,255,0.5);
+  line-height: 280%;
+}
+#t_gnb li i{
+  float:right;
+  line-height: 280%;
+  text-indent: 0;
+}
+#toggle_menu .t_sub{
+  display:none;
+}
+#toggle_menu .t_sub > li {
+  text-indent:30px;
+}
+#toggle_menu .t_sub > li > a{
+  color: #000;
+  font-size: 0.9rem;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+
+
+
+
+
+
+/* ------------메인영역----------- */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid_gallery{
+  display:grid;
+  grid-gap:10px;
+  padding:10px;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "g01 g01 g02"
+    "g01 g01 g03"
+    "g04 g05 g06";
+}
+.grid_gallery figure{
+  overflow: hidden;
+}
+.grid_gallery figure:nth-child(1){grid-area:g01;}
+.grid_gallery figure:nth-child(2){grid-area:g02;}
+.grid_gallery figure:nth-child(3){grid-area:g03;}
+.grid_gallery figure:nth-child(4){grid-area:g04;}
+.grid_gallery figure:nth-child(5){grid-area:g05;}
+.grid_gallery figure:nth-child(6){grid-area:g06;}
+
+
+
+
+/* ---------------푸터영역----------- */
+footer{
+  padding:30px 10px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.f_link{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.f_link a::after{   /* 글자 옆 | 표시 */
+  content: '';
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 1px;
+  height: 10px;
+  background-color: #888;
+}
+.f_link a:last-of-type::after{display: none;}
+
+footer p{
+  line-height: 180%;
+}
+
+
