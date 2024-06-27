@@ -1,0 +1,78 @@
+@charset "utf-8";
+a, li{
+  color:#000;
+  text-decoration: none !important;
+}
+
+
+/* 상단 헤더 부분 */
+header{
+  position: fixed;
+  width: 100%; height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  top:0;
+  z-index: 20 !important;
+}
+header > div{
+  width: 100%; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+.status{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+.status i{
+  font-size: 22px;
+}
+.bi-person::before{
+  transform: scale(1.25);
+}
+
+/* 사이드바 메뉴 */
+
+#side_nav{
+  font-family: "franklin-gothic-urw", sans-serif;
+}
+.side_nav{
+  /* left:-470px; */
+  width:395px; height: 100vh;
+  background:none;
+  box-shadow:none;
+  position: relative;
+  left: 0px;
+  z-index: 100;
+  /* transition:left .75s cubic-bezier(0.22, 1, 0.36, 1); */
+}
+/* .side_nav.open {left:0;} */
+.side_nav .menu {margin-bottom:30px;}
+.side_nav .menu > a{
+  direction:ltr;
+  font-family: "franklin-gothic-urw";
+  font-weight:500;
+  font-size:25px;
+  letter-spacing:-0.035em;
+  line-height:1.2;
+}
+.side_nav .menu .depth2 a {padding:6px 0;font-size:18px;letter-spacing:-0.04em;}
+.side_nav .menu .depth2 a:active {font-style:italic;color:#cf1317;}
+.side_nav .menu .depth2 a:hover {font-style:italic;color:#cf1317;}
+.side_nav:after {
+  z-index: -1;
+  position:absolute;
+  left:-100px;top:0;
+  content:"";
+  display:block;
+  width:530px;height:100%;
+  transform:skew(-4deg);
+  background:#fff;
+  box-shadow:1px 0 18px rgba(0,0,0,0.16);
+}
+.side_nav .nav_inner {width:385px;height:calc(100% - 20px);}
