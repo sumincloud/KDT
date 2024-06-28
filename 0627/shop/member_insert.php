@@ -4,7 +4,6 @@
   $mb_id = trim($_POST['id']);
   $mb_name = trim($_POST['name']);
   $mb_password = trim($_POST['pass']);
-  $mb_password2 = trim($_POST['pass2']);
   $mb_email = trim($_POST['email']);
   $mb_address = trim($_POST['address']);
   $mb_phone = trim($_POST['phone']);
@@ -15,9 +14,8 @@
 
   /* 해시 패스워드 암호화 */
   $hash_password = PASSWORD_HASH($mb_password, PASSWORD_DEFAULT);
-  $hash_password2 = PASSWORD_HASH($mb_password2, PASSWORD_DEFAULT);
 
-  $sql = "INSERT INTO members(mb_id, mb_name, mb_password, mb_password2, mb_email, mb_address, mb_phone, datetime) VALUES('$mb_id','$mb_name', '$hash_password', '$hash_password2', '$mb_email', '$mb_address', '$mb_phone','$datetime')";
+  $sql = "INSERT INTO members(mb_id, mb_name, mb_password, mb_email, mb_address, mb_phone, datetime) VALUES('$mb_id','$mb_name', '$hash_password', '$mb_email', '$mb_address', '$mb_phone','$datetime')";
 
   // 쿼리 실행 및 오류 확인
   if (mysqli_query($conn, $sql)) {

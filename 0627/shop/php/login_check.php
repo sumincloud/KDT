@@ -38,9 +38,22 @@ $_SESSION['username'] = $mb['mb_name']; // 사용자 이름도 세션에 저장
 
 mysqli_close($conn); // 데이터베이스 접속 종료
 
-// 세션정보가 있다면 페이지로 이동한다.
-if (isset($_SESSION['userid'])) {
+if($mb_id=='admin'){
+    //id가 admin일 경우
+    echo "<script>alert('관리자 페이지로 이동합니다.');</script>";
+    echo "<script>location.replace('../product_mg.php');</script>";
+}else{
     echo "<script>alert('로그인 성공');</script>";
     echo "<script>location.replace('../index.php');</script>";
 }
+
+// 세션정보가 있다면 페이지로 이동한다.
+// if (isset($_SESSION['userid'])) {
+//     echo "<script>alert('로그인 성공');</script>";
+//     echo "<script>location.replace('../index.php');</script>";
+// }
+
+
+
+
 ?>
