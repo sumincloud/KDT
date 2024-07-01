@@ -1,5 +1,16 @@
 <?php
   session_start();
+  include('./db/dbconn.php');
+
+  // 사용자가 로그인한 경우, 세션에서 가져옴
+  if (isset($_SESSION['userid'])) {
+    $userid = $_SESSION['userid'];
+    $username = $_SESSION['username'];
+  } else {
+    $userid = null;
+    $username = null;
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -45,10 +56,10 @@
       </div>
     </section>
     <section id="sec02">
-      <h2 class="fs-2 p-4">상품목록</h2>
-      <div class="row">
+      <h2 class="fs-2 p-4">카테고리명</h2>
+      <div class="row col-lg-6 col-12">
         <!-- Swiper -->
-        <div class="swiper mySwiper2 col-md-6">
+        <div class="swiper mySwiper2 col-lg-6">
           <div class="swiper-wrapper">
             <div class="swiper-slide">Slide 1</div>
             <div class="swiper-slide">Slide 2</div>
@@ -58,24 +69,31 @@
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
         </div>
-        <div class="product_box col-md-6">
+        <div class="product_box col-lg-6 col-12">
           <?php
-            include('./db/dbconn.php');
-            $sql = "SELECT * FROM shop_data LIMIT 4";
+            /* 해당 카테고리의 상품 4개 */
+            $sql = "SELECT * FROM shop_data WHERE cate = 'cate01' LIMIT 4";
             $result = mysqli_query($conn, $sql);
 
             while ($row = mysqli_fetch_assoc($result)) {
           ?>
-          <div class="product">
+          <div class="product col-6">
             <div class="pd_img">
-              <a href="#" title="상품">
+              <button type="button" style="padding: 6px;" class="pick" data-no="<?php echo $row['no']; ?>">
+                <span>
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.6423 11.1126C13.9062 10.394 12.9283 10 11.892 10C10.8538 10 9.87785 10.394 9.14413 11.1122C7.61869 12.5986 7.61869 15.0205 9.14373 16.5092L15.9859 23.0909L23.0478 16.3007C24.3819 14.8233 24.3105 12.5319 22.8561 11.1126C22.1216 10.394 21.1453 10 20.1078 10C19.0684 10 18.0912 10.394 17.3563 11.1122L14.335 14.0289C13.9611 14.3827 13.7552 14.8529 13.7552 15.3508C13.7552 15.8491 13.9611 16.3193 14.3346 16.6734C15.1074 17.4049 16.3674 17.4049 17.1417 16.6734L20.0873 13.8428" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+              </button>
+              <a href="./detail.php?no=<?php echo $row['no']; ?>" title="상품">
                 <img src="./images/shop/<?php echo $row['img']; ?>" alt="상품이미지">
               </a>
             </div>
             <div class="info">
-              <p>노웨어 립스틱 볼륨 매트</p>
-              <p>24,000원</p>
-              <a href="#" title="자세히보기">Show more</a>
+              <p><?php echo $row['name']; ?></p>
+              <p><?php echo number_format($row['price']); ?>원</p>
+              <a href="./detail.php?no=<?php echo $row['no']; ?>" title="자세히보기">Show more</a>
             </div>
           </div>
           <?php
@@ -84,6 +102,49 @@
         </div>
       </div>
     </section>
+
+    <section id="sec03">
+      <h2 class="fs-2 p-4">NEW ITEM</h2>
+      <div class="row">
+        <?php
+          //해당 카테고리 상품 보여지게
+          $sql = "SELECT * FROM shop_data ORDER BY datetime DESC LIMIT 4";
+          $result = mysqli_query($conn, $sql);
+          
+          while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+        <div class="product_box col-md-3 col-6">
+          <div class="product">
+            <div class="pd_img">
+              <button type="button" style="padding: 6px;" id="pick">
+                <span>
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.6423 11.1126C13.9062 10.394 12.9283 10 11.892 10C10.8538 10 9.87785 10.394 9.14413 11.1122C7.61869 12.5986 7.61869 15.0205 9.14373 16.5092L15.9859 23.0909L23.0478 16.3007C24.3819 14.8233 24.3105 12.5319 22.8561 11.1126C22.1216 10.394 21.1453 10 20.1078 10C19.0684 10 18.0912 10.394 17.3563 11.1122L14.335 14.0289C13.9611 14.3827 13.7552 14.8529 13.7552 15.3508C13.7552 15.8491 13.9611 16.3193 14.3346 16.6734C15.1074 17.4049 16.3674 17.4049 17.1417 16.6734L20.0873 13.8428" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </span>
+              </button>
+              <a href="./detail.php?no=<?php echo $row['no']; ?>" title="상품">
+                <img src="./images/shop/<?php echo $row['img']; ?>" alt="상품이미지">
+              </a>
+            </div>
+            <div class="info">
+              <p><?php echo $row['name']; ?></p>
+              <p><?php echo number_format($row['price']); ?>원</p>
+              <a href="./detail.php?no=<?php echo $row['no']; ?>" title="자세히보기">Show more</a>
+            </div>
+          </div>
+        </div>
+        <?php
+            }
+            ?>
+      </div>
+    </section>
+    
+
+
+
+
+
   </main>
   
   

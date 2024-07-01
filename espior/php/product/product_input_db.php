@@ -3,9 +3,10 @@
 
   $cate = trim($_POST['cate']);
   $name = trim($_POST['name']);
-  $file = $_FILES['myfile']['name'];
+  $file = uniqid() . '_' . $_FILES['myfile']['name']; //파일이름 중복 방지
   $parent = trim($_POST['parent']);
   $price = trim($_POST['price']);
+  $price = str_replace(',', '', $price); // 가격 쉼표 제거
   $comment = trim($_POST['comment']);
   $memo = trim($_POST['memo']);
 

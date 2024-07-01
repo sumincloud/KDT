@@ -62,7 +62,15 @@
 
 
 
-
+    <script>
+      //자동으로 가격에 쉼표 찍히게
+      document.getElementById('price').addEventListener('input', function (e) {
+        let value = e.target.value;
+        value = value.replace(/,/g, ''); // 기존 쉼표 제거
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ','); // 새로 쉼표 추가
+        e.target.value = value;
+      });
+    </script>
 
 
 

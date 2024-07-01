@@ -28,6 +28,7 @@
 
 
 
+
 	<style>
     /* 로그인페이지 서식 */
     #login_box{
@@ -121,7 +122,7 @@
           <div class="row fs-6" style="text-wrap: nowrap;">
             <div class="col border-end"><a href="#" class="link-secondary">아이디 찾기</a></div>
             <div class="col border-end"><a href="#" class="link-secondary">비밀번호 찾기</a></div>
-            <div class="col"><a href="./register.php" class="link-secondary">회원가입</a></div>
+            <div class="col"><a href="./join.php" class="link-secondary">회원가입</a></div>
           </div>
         </div>
         <div class="d-grid gap-2 mb-5">

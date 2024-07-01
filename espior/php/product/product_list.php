@@ -28,10 +28,10 @@
     echo "<td>" . $row[6] . "</td>";
     echo "<td>" . $row[7] . "</td>";
     echo "<td>" . date('Y-m-d', strtotime($row[8])) . "</td>";
-    echo "<td>" . "<img src='" . $row[2] . "' alt='이미지'></td>";
+    echo "<td>" . "<img src='../../images/shop/" . $row[2] . "' alt='이미지'></td>";
     echo "<td>
-            <button>수정</button>
-            <button>삭제</button>
+            <a href='product_update.php?no=" . $row[0] ."' title=''>수정</a>
+            <a href='product_del.php?no=" . $row[0] ."' title=''>삭제</a>
           </td></tr>";
   }
   echo "</table>";

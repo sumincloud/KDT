@@ -1,108 +1,39 @@
 @charset "utf-8";
+
 a, li{
   color:#000;
   text-decoration: none !important;
 }
-
 :root{
   --main_color: #ce0e2d;
 }
 
-
-/* 상단 헤더 부분 */
-header{
-  position: fixed;
-  width: 100%; height: 60px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  top:0;
-  z-index: 20 !important;
+html, body{
+  width: 100%;height: 100%;
 }
-header > div{
-  width: 100%; height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+main{
+  margin-top: 60px; /* 헤더영역 띄우기 */
+  height: 100%;
+}
+section{
+  margin-top: 50px;
+  padding: 0 6%;
+}
+
+
+
+/* 찜버튼 */
+.pick{
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0 20px;
-}
-#list{
-  cursor: pointer;
-}
-.status{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-}
-.status i{
-  font-size: 22px;
-}
-.bi-person::before{
-  transform: scale(1.25);
-}
-
-/* 사이드바 메뉴 */
-@media (max-width: 767px) {
-  .side_nav {
-    width: 300px !important;
-  }
-  .side_nav:after{
-    width: 400px !important;
-  }
-}
-
-.open {
-  left:0 !important;
-}
-.side_nav{
-  width:400px; height: 100vh;
-  background:none;
-  box-shadow:none;
-  position: relative;
-  z-index: 100;
-  left: -470px;
-  transition: 0.5s;
-}
-#list_close{
-  position: absolute;
+  z-index: 10;
+  border: none;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
   right: 0;
-  cursor: pointer;
+  bottom: 0;
+  margin: 5px;
+  transform: scale(0.9);
 }
-.side_nav .menu {
-  margin-bottom:50px;
-}
-.side_nav .menu > a{
-  font-weight:500;
-  font-size:25px;
-}
-.side_nav .menu .depth2{
-  margin-top: 30px;
-}
-.side_nav .menu .depth2 li{
-  margin-top: 20px;
-}
-.side_nav .menu .depth2 a {
-  padding:6px 0;
-  font-size:18px;
-}
-.side_nav .menu .depth2 a:active {
-  font-style:italic;
-  color:#cf1317;
-}
-.side_nav .menu .depth2 a:hover {
-  font-style:italic;
-  color:#cf1317;
-}
-.side_nav:after {
-  z-index: -1;
-  position:absolute;
-  left:-100px;top:0;
-  content:"";
-  display:block;
-  width:500px;height:100%;
-  transform:skew(-4deg);
-  background:#fff;
-  box-shadow:1px 0 18px rgba(0,0,0,0.16);
+.pick:hover{
+  background: #cf1317;
 }
