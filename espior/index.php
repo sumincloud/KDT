@@ -6,10 +6,22 @@
   if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
     $username = $_SESSION['username'];
+
+    // 사용자가 찜한 상품의 이름을 shop_temp 테이블에서 가져옴
+    $sql = "SELECT no_data FROM shop_temp WHERE ss_id = '$userid'";
+    $result = mysqli_query($conn, $sql);
+
+    // 사용자가 선택한 상품 고유넘버를 저장할 배열 초기화
+    $picked_items = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+      $picked_items[] = $row['no_data'];
+    }
+
   } else {
     $userid = null;
     $username = null;
   }
+
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +69,7 @@
     </section>
     <section id="sec02">
       <h2 class="fs-2 p-4">카테고리명</h2>
-      <div class="row col-lg-6 col-12">
+      <div class="row">
         <!-- Swiper -->
         <div class="swiper mySwiper2 col-lg-6">
           <div class="swiper-wrapper">
@@ -79,7 +91,8 @@
           ?>
           <div class="product col-6">
             <div class="pd_img">
-              <button type="button" style="padding: 6px;" class="pick" data-no="<?php echo $row['no']; ?>">
+              <!-- 사용자가 찜한 상품에는 active가 생기게 -->
+              <button type="button" style="padding: 6px;" class="pick <?php echo in_array($row['no'], $picked_items) ? 'active' : ''; ?>" data-no="<?php echo $row['no']; ?>">
                 <span>
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.6423 11.1126C13.9062 10.394 12.9283 10 11.892 10C10.8538 10 9.87785 10.394 9.14413 11.1122C7.61869 12.5986 7.61869 15.0205 9.14373 16.5092L15.9859 23.0909L23.0478 16.3007C24.3819 14.8233 24.3105 12.5319 22.8561 11.1126C22.1216 10.394 21.1453 10 20.1078 10C19.0684 10 18.0912 10.394 17.3563 11.1122L14.335 14.0289C13.9611 14.3827 13.7552 14.8529 13.7552 15.3508C13.7552 15.8491 13.9611 16.3193 14.3346 16.6734C15.1074 17.4049 16.3674 17.4049 17.1417 16.6734L20.0873 13.8428" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -116,7 +129,8 @@
         <div class="product_box col-md-3 col-6">
           <div class="product">
             <div class="pd_img">
-              <button type="button" style="padding: 6px;" id="pick">
+              <!-- 사용자가 찜한 상품에는 버튼 -->
+              <button type="button" style="padding: 6px;" class="pick <?php echo in_array($row['no'], $picked_items) ? 'active' : ''; ?>" data-no="<?php echo $row['no']; ?>">
                 <span>
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.6423 11.1126C13.9062 10.394 12.9283 10 11.892 10C10.8538 10 9.87785 10.394 9.14413 11.1122C7.61869 12.5986 7.61869 15.0205 9.14373 16.5092L15.9859 23.0909L23.0478 16.3007C24.3819 14.8233 24.3105 12.5319 22.8561 11.1126C22.1216 10.394 21.1453 10 20.1078 10C19.0684 10 18.0912 10.394 17.3563 11.1122L14.335 14.0289C13.9611 14.3827 13.7552 14.8529 13.7552 15.3508C13.7552 15.8491 13.9611 16.3193 14.3346 16.6734C15.1074 17.4049 16.3674 17.4049 17.1417 16.6734L20.0873 13.8428" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -135,8 +149,8 @@
           </div>
         </div>
         <?php
-            }
-            ?>
+        }
+        ?>
       </div>
     </section>
     

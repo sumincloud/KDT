@@ -37,3 +37,6 @@ section{
 .pick:hover{
   background: #cf1317;
 }
+.pick.active {
+  background-color: #cf1317;
+}

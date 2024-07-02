@@ -2,10 +2,15 @@
   session_start();
   include('../db/dbconn.php');
 
+  // 세션정보를 가져온다.
+  if (!isset($_SESSION['userid'])) {
+    http_response_code(401); // 401 Unauthorized 상태 코드 반환
+    echo json_encode(array("message" => "로그인이 필요합니다."));
+    exit();
+  }
 
   //세션정보를 가져온다.
   $userid = $_SESSION['userid'];
-  //$userid = 'admin';
   $username = $_SESSION['username'];
 
   $no = $_GET['no'];
@@ -16,7 +21,9 @@
   $row = mysqli_fetch_assoc($result);
 
   if (!$row) {
-    die("No data found for no: $no");
+    http_response_code(404); // 404 Not Found 상태 코드 반환
+    echo json_encode(array("message" => "No data found for no: $no"));
+    exit();
   }
 
   $name = $row['name'];
@@ -32,17 +39,17 @@
   $count = '1';
 
 
-  $sql = "INSERT INTO shop_temp(name, parent, count, price, img, comment, ss_id, datetime) VALUES('$name', '$parent', '$count', '$price', '$img', '$comment', '$ss_id', '$datetime')";
+  $sql = "INSERT INTO shop_temp(no_data, name, parent, count, price, img, comment, ss_id, datetime) VALUES('$no', '$name', '$parent', '$count', '$price', '$img', '$comment', '$ss_id', '$datetime')";
 
 
 
   if (mysqli_query($conn, $sql)) {
-    // 삽입이 성공하면 이전 페이지로 리다이렉트 한다.
-    header("Location: " . $_SERVER['HTTP_REFERER']);
-    exit();
+    // 삽입이 성공하면 JSON 응답 반환
+    echo json_encode(array("message" => "Success"));
   } else {
-    // 에러가 발생하면 에러 메시지를 출력한다.
-    echo "에러: " . $sql . "<br>" . mysqli_error($conn);
+    // 에러가 발생하면 JSON 응답 반환
+    http_response_code(500); // 500 Internal Server Error 상태 코드 반환
+    echo json_encode(array("message" => "에러: " . $sql . "<br>" . mysqli_error($conn)));
   }
   
   mysqli_close($conn);

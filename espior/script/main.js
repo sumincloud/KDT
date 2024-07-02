@@ -13,6 +13,8 @@ $(document).ready(function() {
       success: function(response) {
         // 성공적으로 처리되었을 때의 동작 (예: 필요한 경우 처리)
         console.log('Ajax request succeeded.');
+        // 찜 버튼에서 active 클래 추가
+        $(`.pick[data-no="${no}"]`).addClass('active');
       },
       error: function(xhr, status, error) {
         // 오류 발생 시 처리
@@ -22,6 +24,27 @@ $(document).ready(function() {
   });
 
 
+  // 찜 버튼에서 active 클래스 제거할 때
+  $('.pick.active').on('click', function() {
+    const no = $(this).data('no');
+
+    // Ajax 요청 보내기
+    $.ajax({
+      url: './php/cart_delete.php',
+      type: 'GET',
+      data: { no: no },
+      success: function(response) {
+        console.log('찜 상태 삭제 완료');
+        
+        // 찜 버튼에서 active 클래스 제거
+        $(`.pick[data-no="${no}"]`).removeClass('active');
+        
+      },
+      error: function(xhr, status, error) {
+        console.error('Ajax request failed:', error);
+      }
+    });
+  })
 
 });
 
